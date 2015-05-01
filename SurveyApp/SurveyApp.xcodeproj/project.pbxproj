@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F25048921AF0A9510028DABA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F25048911AF0A9510028DABA /* main.m */; };
+		F25048951AF0A9510028DABA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F25048941AF0A9510028DABA /* AppDelegate.m */; };
+		F25048981AF0A9510028DABA /* CreatePollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F25048971AF0A9510028DABA /* CreatePollVC.m */; };
+		F250489B1AF0A9510028DABA /* ViewPollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F250489A1AF0A9510028DABA /* ViewPollVC.m */; };
+		F250489E1AF0A9510028DABA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F250489C1AF0A9510028DABA /* Main.storyboard */; };
+		F25048A01AF0A9510028DABA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F250489F1AF0A9510028DABA /* Images.xcassets */; };
+		F25048A31AF0A9510028DABA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F25048A11AF0A9510028DABA /* LaunchScreen.xib */; };
+		F25048AF1AF0A9520028DABA /* SurveyAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F25048AE1AF0A9520028DABA /* SurveyAppTests.m */; };
+		F25048BA1AF0B48D0028DABA /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F25048B91AF0B48D0028DABA /* Singleton.m */; };
+		F27AAC661AF1B22A001F7A0E /* #20bfa3-Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = F27AAC611AF1B22A001F7A0E /* #20bfa3-Teal.png */; };
+		F27AAC671AF1B22A001F7A0E /* #231f20-Grey-35%-Opacity.png in Resources */ = {isa = PBXBuildFile; fileRef = F27AAC621AF1B22A001F7A0E /* #231f20-Grey-35%-Opacity.png */; };
+		F27AAC681AF1B22A001F7A0E /* #242424-Dark-Grey.png in Resources */ = {isa = PBXBuildFile; fileRef = F27AAC631AF1B22A001F7A0E /* #242424-Dark-Grey.png */; };
+		F27AAC691AF1B22A001F7A0E /* #e5e5e5-GreyBG.png in Resources */ = {isa = PBXBuildFile; fileRef = F27AAC641AF1B22A001F7A0E /* #e5e5e5-GreyBG.png */; };
+		F27AAC6A1AF1B22A001F7A0E /* #ed5357-LightRed.png in Resources */ = {isa = PBXBuildFile; fileRef = F27AAC651AF1B22A001F7A0E /* #ed5357-LightRed.png */; };
+		F27AAC6E1AF1C19D001F7A0E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F27AAC6D1AF1C19D001F7A0E /* icon.png */; };
+		F27AAC701AF1D581001F7A0E /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F27AAC6F1AF1D581001F7A0E /* ShinobiCharts.framework */; };
+		F27AAC721AF1D5E3001F7A0E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F27AAC711AF1D5E3001F7A0E /* Security.framework */; };
+		F27AAC741AF1D5EC001F7A0E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F27AAC731AF1D5EC001F7A0E /* QuartzCore.framework */; };
+		F27AAC761AF1D5F5001F7A0E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F27AAC751AF1D5F5001F7A0E /* OpenGLES.framework */; };
+		F27AAC781AF1D600001F7A0E /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F27AAC771AF1D600001F7A0E /* CoreText.framework */; };
+		F27AAC7A1AF1D613001F7A0E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F27AAC791AF1D613001F7A0E /* libc++.dylib */; };
+		F27AAC7E1AF1D68C001F7A0E /* ChartingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F27AAC7D1AF1D68C001F7A0E /* ChartingVC.m */; };
+		F27AAC851AF1D8C6001F7A0E /* NSDictionary+JSONDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F27AAC841AF1D8C6001F7A0E /* NSDictionary+JSONDictionary.m */; };
+		F27AAC881AF208DB001F7A0E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F27AAC871AF208DB001F7A0E /* background.png */; };
+		F27AAC8C1AF216F6001F7A0E /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F27AAC8B1AF216F6001F7A0E /* LoginVC.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F25048A91AF0A9520028DABA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F25048841AF0A9510028DABA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F250488B1AF0A9510028DABA;
+			remoteInfo = SurveyApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F250488C1AF0A9510028DABA /* SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F25048901AF0A9510028DABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F25048911AF0A9510028DABA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F25048931AF0A9510028DABA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F25048941AF0A9510028DABA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F25048961AF0A9510028DABA /* CreatePollVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreatePollVC.h; sourceTree = "<group>"; };
+		F25048971AF0A9510028DABA /* CreatePollVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreatePollVC.m; sourceTree = "<group>"; };
+		F25048991AF0A9510028DABA /* ViewPollVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewPollVC.h; sourceTree = "<group>"; };
+		F250489A1AF0A9510028DABA /* ViewPollVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewPollVC.m; sourceTree = "<group>"; };
+		F250489D1AF0A9510028DABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F250489F1AF0A9510028DABA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F25048A21AF0A9510028DABA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F25048A81AF0A9520028DABA /* SurveyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurveyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F25048AD1AF0A9520028DABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F25048AE1AF0A9520028DABA /* SurveyAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SurveyAppTests.m; sourceTree = "<group>"; };
+		F25048B81AF0B48D0028DABA /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		F25048B91AF0B48D0028DABA /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
+		F27AAC611AF1B22A001F7A0E /* #20bfa3-Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "#20bfa3-Teal.png"; sourceTree = "<group>"; };
+		F27AAC621AF1B22A001F7A0E /* #231f20-Grey-35%-Opacity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "#231f20-Grey-35%-Opacity.png"; sourceTree = "<group>"; };
+		F27AAC631AF1B22A001F7A0E /* #242424-Dark-Grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "#242424-Dark-Grey.png"; sourceTree = "<group>"; };
+		F27AAC641AF1B22A001F7A0E /* #e5e5e5-GreyBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "#e5e5e5-GreyBG.png"; sourceTree = "<group>"; };
+		F27AAC651AF1B22A001F7A0E /* #ed5357-LightRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "#ed5357-LightRed.png"; sourceTree = "<group>"; };
+		F27AAC6D1AF1C19D001F7A0E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		F27AAC6F1AF1D581001F7A0E /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShinobiCharts.framework; path = Library/Frameworks/ShinobiCharts.framework; sourceTree = DEVELOPER_DIR; };
+		F27AAC711AF1D5E3001F7A0E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F27AAC731AF1D5EC001F7A0E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F27AAC751AF1D5F5001F7A0E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		F27AAC771AF1D600001F7A0E /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		F27AAC791AF1D613001F7A0E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		F27AAC7C1AF1D68C001F7A0E /* ChartingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartingVC.h; sourceTree = "<group>"; };
+		F27AAC7D1AF1D68C001F7A0E /* ChartingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartingVC.m; sourceTree = "<group>"; };
+		F27AAC831AF1D8C6001F7A0E /* NSDictionary+JSONDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSONDictionary.h"; sourceTree = "<group>"; };
+		F27AAC841AF1D8C6001F7A0E /* NSDictionary+JSONDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSONDictionary.m"; sourceTree = "<group>"; };
+		F27AAC861AF1FE17001F7A0E /* URLs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLs.h; sourceTree = "<group>"; };
+		F27AAC871AF208DB001F7A0E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		F27AAC8A1AF216F6001F7A0E /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		F27AAC8B1AF216F6001F7A0E /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F25048891AF0A9510028DABA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F27AAC7A1AF1D613001F7A0E /* libc++.dylib in Frameworks */,
+				F27AAC781AF1D600001F7A0E /* CoreText.framework in Frameworks */,
+				F27AAC761AF1D5F5001F7A0E /* OpenGLES.framework in Frameworks */,
+				F27AAC741AF1D5EC001F7A0E /* QuartzCore.framework in Frameworks */,
+				F27AAC721AF1D5E3001F7A0E /* Security.framework in Frameworks */,
+				F27AAC701AF1D581001F7A0E /* ShinobiCharts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F25048A51AF0A9520028DABA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F25048831AF0A9510028DABA = {
+			isa = PBXGroup;
+			children = (
+				F27AAC7B1AF1D64F001F7A0E /* Frameworks */,
+				F250488E1AF0A9510028DABA /* SurveyApp */,
+				F25048AB1AF0A9520028DABA /* SurveyAppTests */,
+				F250488D1AF0A9510028DABA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F250488D1AF0A9510028DABA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F250488C1AF0A9510028DABA /* SurveyApp.app */,
+				F25048A81AF0A9520028DABA /* SurveyAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F250488E1AF0A9510028DABA /* SurveyApp */ = {
+			isa = PBXGroup;
+			children = (
+				F27AAC891AF216C8001F7A0E /* Login */,
+				F27AAC821AF1D885001F7A0E /* JSONCategory */,
+				F27AAC6B1AF1B234001F7A0E /* images */,
+				F25048BB1AF0B4940028DABA /* Singleton */,
+				F25048931AF0A9510028DABA /* AppDelegate.h */,
+				F25048941AF0A9510028DABA /* AppDelegate.m */,
+				F27AAC811AF1D6DA001F7A0E /* Create Polls */,
+				F27AAC801AF1D6C7001F7A0E /* View Polls */,
+				F27AAC7F1AF1D6B9001F7A0E /* Charting */,
+				F250489C1AF0A9510028DABA /* Main.storyboard */,
+				F250489F1AF0A9510028DABA /* Images.xcassets */,
+				F25048A11AF0A9510028DABA /* LaunchScreen.xib */,
+				F250488F1AF0A9510028DABA /* Supporting Files */,
+				F27AAC861AF1FE17001F7A0E /* URLs.h */,
+			);
+			path = SurveyApp;
+			sourceTree = "<group>";
+		};
+		F250488F1AF0A9510028DABA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F25048901AF0A9510028DABA /* Info.plist */,
+				F25048911AF0A9510028DABA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F25048AB1AF0A9520028DABA /* SurveyAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				F25048AE1AF0A9520028DABA /* SurveyAppTests.m */,
+				F25048AC1AF0A9520028DABA /* Supporting Files */,
+			);
+			path = SurveyAppTests;
+			sourceTree = "<group>";
+		};
+		F25048AC1AF0A9520028DABA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F25048AD1AF0A9520028DABA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F25048BB1AF0B4940028DABA /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				F25048B81AF0B48D0028DABA /* Singleton.h */,
+				F25048B91AF0B48D0028DABA /* Singleton.m */,
+			);
+			name = Singleton;
+			sourceTree = "<group>";
+		};
+		F27AAC6B1AF1B234001F7A0E /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F27AAC871AF208DB001F7A0E /* background.png */,
+				F27AAC6D1AF1C19D001F7A0E /* icon.png */,
+				F27AAC6C1AF1B256001F7A0E /* colors */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		F27AAC6C1AF1B256001F7A0E /* colors */ = {
+			isa = PBXGroup;
+			children = (
+				F27AAC611AF1B22A001F7A0E /* #20bfa3-Teal.png */,
+				F27AAC621AF1B22A001F7A0E /* #231f20-Grey-35%-Opacity.png */,
+				F27AAC631AF1B22A001F7A0E /* #242424-Dark-Grey.png */,
+				F27AAC641AF1B22A001F7A0E /* #e5e5e5-GreyBG.png */,
+				F27AAC651AF1B22A001F7A0E /* #ed5357-LightRed.png */,
+			);
+			name = colors;
+			sourceTree = "<group>";
+		};
+		F27AAC7B1AF1D64F001F7A0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F27AAC791AF1D613001F7A0E /* libc++.dylib */,
+				F27AAC771AF1D600001F7A0E /* CoreText.framework */,
+				F27AAC751AF1D5F5001F7A0E /* OpenGLES.framework */,
+				F27AAC731AF1D5EC001F7A0E /* QuartzCore.framework */,
+				F27AAC711AF1D5E3001F7A0E /* Security.framework */,
+				F27AAC6F1AF1D581001F7A0E /* ShinobiCharts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F27AAC7F1AF1D6B9001F7A0E /* Charting */ = {
+			isa = PBXGroup;
+			children = (
+				F27AAC7C1AF1D68C001F7A0E /* ChartingVC.h */,
+				F27AAC7D1AF1D68C001F7A0E /* ChartingVC.m */,
+			);
+			name = Charting;
+			sourceTree = "<group>";
+		};
+		F27AAC801AF1D6C7001F7A0E /* View Polls */ = {
+			isa = PBXGroup;
+			children = (
+				F25048991AF0A9510028DABA /* ViewPollVC.h */,
+				F250489A1AF0A9510028DABA /* ViewPollVC.m */,
+			);
+			name = "View Polls";
+			sourceTree = "<group>";
+		};
+		F27AAC811AF1D6DA001F7A0E /* Create Polls */ = {
+			isa = PBXGroup;
+			children = (
+				F25048961AF0A9510028DABA /* CreatePollVC.h */,
+				F25048971AF0A9510028DABA /* CreatePollVC.m */,
+			);
+			name = "Create Polls";
+			sourceTree = "<group>";
+		};
+		F27AAC821AF1D885001F7A0E /* JSONCategory */ = {
+			isa = PBXGroup;
+			children = (
+				F27AAC831AF1D8C6001F7A0E /* NSDictionary+JSONDictionary.h */,
+				F27AAC841AF1D8C6001F7A0E /* NSDictionary+JSONDictionary.m */,
+			);
+			name = JSONCategory;
+			sourceTree = "<group>";
+		};
+		F27AAC891AF216C8001F7A0E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F27AAC8A1AF216F6001F7A0E /* LoginVC.h */,
+				F27AAC8B1AF216F6001F7A0E /* LoginVC.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F250488B1AF0A9510028DABA /* SurveyApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F25048B21AF0A9520028DABA /* Build configuration list for PBXNativeTarget "SurveyApp" */;
+			buildPhases = (
+				F25048881AF0A9510028DABA /* Sources */,
+				F25048891AF0A9510028DABA /* Frameworks */,
+				F250488A1AF0A9510028DABA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SurveyApp;
+			productName = SurveyApp;
+			productReference = F250488C1AF0A9510028DABA /* SurveyApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F25048A71AF0A9520028DABA /* SurveyAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F25048B51AF0A9520028DABA /* Build configuration list for PBXNativeTarget "SurveyAppTests" */;
+			buildPhases = (
+				F25048A41AF0A9520028DABA /* Sources */,
+				F25048A51AF0A9520028DABA /* Frameworks */,
+				F25048A61AF0A9520028DABA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F25048AA1AF0A9520028DABA /* PBXTargetDependency */,
+			);
+			name = SurveyAppTests;
+			productName = SurveyAppTests;
+			productReference = F25048A81AF0A9520028DABA /* SurveyAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F25048841AF0A9510028DABA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = CMPE277;
+				TargetAttributes = {
+					F250488B1AF0A9510028DABA = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					F25048A71AF0A9520028DABA = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = F250488B1AF0A9510028DABA;
+					};
+				};
+			};
+			buildConfigurationList = F25048871AF0A9510028DABA /* Build configuration list for PBXProject "SurveyApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F25048831AF0A9510028DABA;
+			productRefGroup = F250488D1AF0A9510028DABA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F250488B1AF0A9510028DABA /* SurveyApp */,
+				F25048A71AF0A9520028DABA /* SurveyAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F250488A1AF0A9510028DABA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F250489E1AF0A9510028DABA /* Main.storyboard in Resources */,
+				F27AAC881AF208DB001F7A0E /* background.png in Resources */,
+				F25048A31AF0A9510028DABA /* LaunchScreen.xib in Resources */,
+				F27AAC6E1AF1C19D001F7A0E /* icon.png in Resources */,
+				F25048A01AF0A9510028DABA /* Images.xcassets in Resources */,
+				F27AAC661AF1B22A001F7A0E /* #20bfa3-Teal.png in Resources */,
+				F27AAC681AF1B22A001F7A0E /* #242424-Dark-Grey.png in Resources */,
+				F27AAC691AF1B22A001F7A0E /* #e5e5e5-GreyBG.png in Resources */,
+				F27AAC671AF1B22A001F7A0E /* #231f20-Grey-35%-Opacity.png in Resources */,
+				F27AAC6A1AF1B22A001F7A0E /* #ed5357-LightRed.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F25048A61AF0A9520028DABA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F25048881AF0A9510028DABA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F250489B1AF0A9510028DABA /* ViewPollVC.m in Sources */,
+				F25048951AF0A9510028DABA /* AppDelegate.m in Sources */,
+				F25048981AF0A9510028DABA /* CreatePollVC.m in Sources */,
+				F27AAC851AF1D8C6001F7A0E /* NSDictionary+JSONDictionary.m in Sources */,
+				F25048921AF0A9510028DABA /* main.m in Sources */,
+				F27AAC7E1AF1D68C001F7A0E /* ChartingVC.m in Sources */,
+				F27AAC8C1AF216F6001F7A0E /* LoginVC.m in Sources */,
+				F25048BA1AF0B48D0028DABA /* Singleton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F25048A41AF0A9520028DABA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F25048AF1AF0A9520028DABA /* SurveyAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F25048AA1AF0A9520028DABA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F250488B1AF0A9510028DABA /* SurveyApp */;
+			targetProxy = F25048A91AF0A9520028DABA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F250489C1AF0A9510028DABA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F250489D1AF0A9510028DABA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F25048A11AF0A9510028DABA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F25048A21AF0A9510028DABA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F25048B01AF0A9520028DABA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F25048B11AF0A9520028DABA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F25048B31AF0A9520028DABA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				INFOPLIST_FILE = SurveyApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F25048B41AF0A9520028DABA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				INFOPLIST_FILE = SurveyApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F25048B61AF0A9520028DABA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SurveyAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SurveyApp.app/SurveyApp";
+			};
+			name = Debug;
+		};
+		F25048B71AF0A9520028DABA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SurveyAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SurveyApp.app/SurveyApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F25048871AF0A9510028DABA /* Build configuration list for PBXProject "SurveyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F25048B01AF0A9520028DABA /* Debug */,
+				F25048B11AF0A9520028DABA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F25048B21AF0A9520028DABA /* Build configuration list for PBXNativeTarget "SurveyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F25048B31AF0A9520028DABA /* Debug */,
+				F25048B41AF0A9520028DABA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F25048B51AF0A9520028DABA /* Build configuration list for PBXNativeTarget "SurveyAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F25048B61AF0A9520028DABA /* Debug */,
+				F25048B71AF0A9520028DABA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F25048841AF0A9510028DABA /* Project object */;
+}
