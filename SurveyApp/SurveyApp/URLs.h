@@ -11,18 +11,22 @@
 //IP
 #define URLIP @"http://10.0.0.21:8080"
 // Login
-#define URLLoginPOST @"http://10.0.0.21:8080/api/v1/moderators/login"
+#define URLLoginPOST @"/api/v1/moderators/login"
 
 // Moderator
-#define URLCreateModeratorPOST @"http://10.0.0.21:8080/api/v1/moderators"
+#define URLCreateModeratorPOST @"/api/v1/moderators"
+
 #define URLGetModeratorsWithIDGET @"http://localhost:8080/api/v1/moderators/%@"
 #define URLUpdateModeratorPUT @"http://localhost:8080/api/v1/moderators/%@"
 
 // Polls
-#define URLCreatePollPOST @"http://10.0.0.21:8080/api/v1/moderators/%@/polls"
+#define URLCreatePollPOST @"/api/v1/moderators/%@/polls"
+
 #define URLGetPollWithoutResultGET @"http://localhost:8080/api/v1/polls/%@"
 #define URLGetPollForModeratorIdWithResultGET @"http://localhost:8080/api/v1/moderators/%@/polls/%@"
-#define URLGetAllPollsGET @"http://10.0.0.21:8080/api/v1/moderators/%@/polls"
+
+#define URLGetAllPollsGET @"/api/v1/moderators/%@/polls"
+
 #define URLDeletePollDELETE @"http://localhost:8080/api/v1/moderators/%@/polls/%@"
 
 // Vote

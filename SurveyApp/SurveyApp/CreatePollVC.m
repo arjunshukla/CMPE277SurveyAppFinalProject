@@ -14,8 +14,9 @@
 @end
 
 @implementation CreatePollVC
-@synthesize txtCategory,txtPollName,pickerCategory,pickerDate,txtExpiryDate,txtFirstOption,txtQuestion,txtSecondOption,txtStartDate;
+@synthesize txtCategory,txtPollName,pickerCategory,pickerDate,txtExpiryDate,txtFirstOption,txtQuestion,txtSecondOption,txtStartDate,txtThirdOption,txtFourthOption,viewVisual;
 NSArray* arrCategory;
+CGPoint originalCenter;
 BOOL isStartDate = false;
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +27,12 @@ BOOL isStartDate = false;
     [pickerDate addTarget:self action:@selector(datePickerChanged:) forControlEvents:UIControlEventValueChanged];
     pickerDate.backgroundColor = [UIColor lightGrayColor];
     pickerCategory.backgroundColor = [UIColor lightGrayColor];
+    originalCenter = self.view.center;
+    
+    txtFirstOption.delegate = self;
+    txtSecondOption.delegate = self;
+    txtThirdOption.delegate = self;
+    txtFourthOption.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,7 +61,7 @@ BOOL isStartDate = false;
         {
             NSArray *tmpArr = [[NSArray alloc]initWithObjects:txtFirstOption.text, txtSecondOption.text, nil];
             
-            NSString *urlString = [NSString stringWithFormat:URLCreatePollPOST,[Singleton getInstance].moderatorId];
+            NSString *urlString = [NSString stringWithFormat:[URLIP stringByAppendingString:URLCreatePollPOST],[Singleton getInstance].moderatorId];
             
             NSURL *url=[NSURL URLWithString:urlString];
             
@@ -82,14 +89,14 @@ BOOL isStartDate = false;
                 NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
                 NSLog(@"Response ==> %@", responseData);
                 
-                    isValidUser = true;
-                    NSError *error = nil;
-                    NSDictionary *jsonData = [NSJSONSerialization
-                                              JSONObjectWithData:urlData
-                                              options:NSJSONReadingMutableContainers
-                                              error:&error];
-                    success = 1;
-                    NSLog(@"Success: %ld",(long)success);
+                isValidUser = true;
+                NSError *error = nil;
+                NSDictionary *jsonData = [NSJSONSerialization
+                                          JSONObjectWithData:urlData
+                                          options:NSJSONReadingMutableContainers
+                                          error:&error];
+                success = 1;
+                NSLog(@"Success: %ld",(long)success);
                 
                 if([responseData isEqualToString:@"true"])
                 {
@@ -175,9 +182,49 @@ BOOL isStartDate = false;
 }
 
 #pragma mark textfield
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if(textField == txtThirdOption || textField == txtFourthOption)
+    {
+        
+//        [self.view setAlpha:0.5f];
+        
+        //fade in
+        [UIView animateWithDuration:0.3f animations:^{
+            self.view.center = CGPointMake(originalCenter.x, originalCenter.y - 200);
+//            [self.view setAlpha:1.0f];
+            
+        } completion:nil/*^(BOOL finished) {
+                         
+                         //fade out
+                         [UIView animateWithDuration:2.0f animations:^{
+                         
+                         [viewProjCategory setAlpha:0.0f];
+                         
+                         } completion:nil];
+                         
+                         }*/];
+    }
+}
+
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-    [textField resignFirstResponder];
+    [UIView animateWithDuration:0.3f animations:^{
+        [textField resignFirstResponder];
+        self.view.center = originalCenter;
+    }];
+    
     return YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [UIView animateWithDuration:0.3f animations:^{
+        [textField resignFirstResponder];
+        self.view.center = originalCenter;
+    }];
+    [textField resignFirstResponder];
+    return true;
 }
 @end

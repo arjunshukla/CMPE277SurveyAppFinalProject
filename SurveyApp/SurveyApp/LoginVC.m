@@ -34,7 +34,7 @@
             }
             else
             {
-                NSURL *url=[NSURL URLWithString:URLLoginPOST];
+                NSURL *url=[NSURL URLWithString:[URLIP stringByAppendingString:URLLoginPOST]];
                 NSDictionary *tmp = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      txtEmail.text, @"email",
                                      txtPassword.text, @"password",
@@ -104,7 +104,7 @@
             }
             else
             {
-                NSURL *url=[NSURL URLWithString:URLCreateModeratorPOST];
+                NSURL *url=[NSURL URLWithString:[URLIP stringByAppendingString:URLCreateModeratorPOST]];
                 NSDictionary *tmp = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      txtName.text, @"name",
                                      txtEmail.text, @"email",

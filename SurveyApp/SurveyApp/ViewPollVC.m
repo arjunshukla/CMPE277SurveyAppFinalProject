@@ -28,7 +28,7 @@ NSDictionary *jsonData;
     BOOL isValidUser = false;
     @try
     {
-        NSString *urlString = [NSString stringWithFormat:URLGetAllPollsGET,[Singleton getInstance].moderatorId];
+        NSString *urlString = [NSString stringWithFormat:[URLIP stringByAppendingString:URLGetAllPollsGET],[Singleton getInstance].moderatorId];
         
         NSURL *url=[NSURL URLWithString:urlString];
         

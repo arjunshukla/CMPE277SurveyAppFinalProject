@@ -19,10 +19,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtFirstOption;
 @property (weak, nonatomic) IBOutlet UITextField *txtSecondOption;
 @property (weak, nonatomic) IBOutlet UIDatePicker *pickerDate;
+@property (weak, nonatomic) IBOutlet UITextField *txtThirdOption;
+@property (weak, nonatomic) IBOutlet UITextField *txtFourthOption;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *viewVisual;
 
 - (IBAction)onCategoryTap:(id)sender;
 - (IBAction)onCreateBtnTap:(id)sender;
 - (IBAction)onStartDateTap:(id)sender;
 - (IBAction)onEndDateTap:(id)sender;
-@end
 
+@end
