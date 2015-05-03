@@ -8,7 +8,8 @@
 
 #ifndef SurveyApp_URLs_h
 #define SurveyApp_URLs_h
-
+//IP
+#define URLIP @"http://10.0.0.21:8080"
 // Login
 #define URLLoginPOST @"http://10.0.0.21:8080/api/v1/moderators/login"
 

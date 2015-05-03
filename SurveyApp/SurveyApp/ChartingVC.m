@@ -9,40 +9,83 @@
 #import "ChartingVC.h"
 #import <ShinobiCharts/ShinobiCharts.h>
 
-@interface ChartingVC ()
+@interface ChartingVC ()<SChartDatasource>
 
 @end
 
 @implementation ChartingVC
-
+NSDictionary* result[2];
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    // charting code...
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    CGFloat margin = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10.0 : 50.0;
-    ShinobiChart *chart = [[ShinobiChart alloc] initWithFrame:CGRectInset(self.view.bounds, margin, margin)];
-    chart.title = @"Trigonometric Functions";
+//    self.view.backgroundColor = [UIColor whiteColor];
+//    CGFloat margin = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10.0 : 50.0;
+    ShinobiChart *chart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 70, 365, 544)];
+    chart.title = @"RESULT";
     
     chart.autoresizingMask = ~UIViewAutoresizingNone;
     chart.licenseKey = @"PVJM17c2WyPYMNjMjAxNTA1Mjhhcmp1bi5zaHVrbGFAc2pzdS5lZHU=Pr1I3K5xNZd11PhbrDpufbHziBqD6N3BqePtLNVeQYDLq+jZiM5jFZEaff9m/fP0UFU97cFwdO7aD7B4zD0+f2AIXr9x37LjERkgikrKtQ9bJt2kD89aEIVt0xkcnaXmvk+Qh9uBkQpGeZIxhAcfdHn+0Upc=BQxSUisl3BaWf/7myRmmlIjRnMU2cA7q+/03ZX9wdj30RzapYANf51ee3Pi8m2rVW6aD7t6Hi4Qy5vv9xpaQYXF5T7XzsafhzS3hbBokp36BoJZg8IrceBj742nQajYyV7trx5GIw9jy/V6r0bvctKYwTim7Kzq+YPWGMtqtQoU=PFJTQUtleVZhbHVlPjxNb2R1bHVzPnh6YlRrc2dYWWJvQUh5VGR6dkNzQXUrUVAxQnM5b2VrZUxxZVdacnRFbUx3OHZlWStBK3pteXg4NGpJbFkzT2hGdlNYbHZDSjlKVGZQTTF4S2ZweWZBVXBGeXgxRnVBMThOcDNETUxXR1JJbTJ6WXA3a1YyMEdYZGU3RnJyTHZjdGhIbW1BZ21PTTdwMFBsNWlSKzNVMDg5M1N4b2hCZlJ5RHdEeE9vdDNlMD08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+"; // TODO: add your trial licence key here!
+    
+    // add a pair of axes
+    SChartCategoryAxis *xAxis = [SChartCategoryAxis new];
+    xAxis.style.interSeriesPadding = @1.0;
+    chart.xAxis = xAxis;
+    
+    SChartAxis *yAxis = [SChartNumberAxis new];
+    yAxis.title = @"Sales (1000s)";
+    yAxis.rangePaddingHigh = @1.0;
+    chart.yAxis = yAxis;
+    
+    
+    xAxis.enableGesturePanning = true;
+    xAxis.enableGestureZooming = true;
+    yAxis.rangePaddingHigh = @(0.1);
+    yAxis.enableGesturePanning = true;
+    yAxis.enableGestureZooming = true;
+    chart.datasource = self;
+    [self.view addSubview:chart];
+    
+    result[0] = @{@"Broccoli" : @5.65, @"Carrots" : @12.6, @"Mushrooms" : @8.4};
+    result[1] = @{@"Broccoli" : @4.35, @"Carrots" : @13.2, @"Mushrooms" : @4.6, @"Okra" : @0.6};
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark - SCChartDataSource Methods
+-(NSInteger) numberOfSeriesInSChart:(ShinobiChart *)chart
+{
+    return 2;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - data
+-(SChartSeries *)sChart:(ShinobiChart *)chart seriesAtIndex:(NSInteger)index
+{
+    SChartColumnSeries *lineSeries = [SChartColumnSeries new];
+    
+    if (index == 0) {
+        lineSeries.title = @"Ideal Velocity";
+    } else {
+        lineSeries.title = @"Actual Velocity";
+    }
+    //    lineSeries.style.showFill = true;
+    return lineSeries;
 }
-*/
+
+- (NSInteger)sChart:(ShinobiChart *)chart numberOfDataPointsForSeriesAtIndex:(NSInteger)seriesIndex
+{
+    return 2;
+}
+
+//- (id<SChartData>)sChart:(ShinobiChart *)chart dataPointAtIndex:(NSInteger)dataIndex forSeriesAtIndex:(NSInteger)seriesIndex
+//{
+//
+//}
+
+
+-(id<SChartData>)sChart:(ShinobiChart *)chart dataPointAtIndex:(NSInteger)dataIndex forSeriesAtIndex:(NSInteger)seriesIndex {
+    SChartDataPoint *datapoint = [SChartDataPoint new];
+    NSString* key = result[seriesIndex].allKeys[dataIndex];
+    datapoint.xValue = key;
+    datapoint.yValue = result[seriesIndex][key];
+    return datapoint;
+}
 
 @end

@@ -18,7 +18,7 @@ NSArray* arrPollList;
 NSDictionary *jsonData;
 
 -(void) viewDidLoad{
-    
+    self.navigationItem.title = @"View Polls";
     
 }
 
