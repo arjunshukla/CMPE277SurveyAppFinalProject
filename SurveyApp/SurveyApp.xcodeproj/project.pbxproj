@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F23B68E71AF6B56200D99F96 /* VoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F23B68E61AF6B56200D99F96 /* VoteVC.m */; };
 		F23B68EB1AF6D1E000D99F96 /* ViewPollDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F23B68EA1AF6D1E000D99F96 /* ViewPollDetailsVC.m */; };
+		F23B68EE1AF72C6000D99F96 /* VoteForSelectedPollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F23B68ED1AF72C6000D99F96 /* VoteForSelectedPollVC.m */; };
 		F25048921AF0A9510028DABA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F25048911AF0A9510028DABA /* main.m */; };
 		F25048951AF0A9510028DABA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F25048941AF0A9510028DABA /* AppDelegate.m */; };
 		F25048981AF0A9510028DABA /* CreatePollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F25048971AF0A9510028DABA /* CreatePollVC.m */; };
@@ -51,6 +52,8 @@
 		F23B68E61AF6B56200D99F96 /* VoteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteVC.m; sourceTree = "<group>"; };
 		F23B68E91AF6D1E000D99F96 /* ViewPollDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPollDetailsVC.h; sourceTree = "<group>"; };
 		F23B68EA1AF6D1E000D99F96 /* ViewPollDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPollDetailsVC.m; sourceTree = "<group>"; };
+		F23B68EC1AF72C6000D99F96 /* VoteForSelectedPollVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteForSelectedPollVC.h; sourceTree = "<group>"; };
+		F23B68ED1AF72C6000D99F96 /* VoteForSelectedPollVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteForSelectedPollVC.m; sourceTree = "<group>"; };
 		F250488C1AF0A9510028DABA /* SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F25048901AF0A9510028DABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F25048911AF0A9510028DABA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 			children = (
 				F23B68E51AF6B56200D99F96 /* VoteVC.h */,
 				F23B68E61AF6B56200D99F96 /* VoteVC.m */,
+				F23B68EC1AF72C6000D99F96 /* VoteForSelectedPollVC.h */,
+				F23B68ED1AF72C6000D99F96 /* VoteForSelectedPollVC.m */,
 			);
 			name = Vote;
 			sourceTree = "<group>";
@@ -396,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F23B68EE1AF72C6000D99F96 /* VoteForSelectedPollVC.m in Sources */,
 				F250489B1AF0A9510028DABA /* ViewPollVC.m in Sources */,
 				F25048951AF0A9510028DABA /* AppDelegate.m in Sources */,
 				F25048981AF0A9510028DABA /* CreatePollVC.m in Sources */,

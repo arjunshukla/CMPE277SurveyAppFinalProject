@@ -31,7 +31,7 @@
 #define URLDeletePollDELETE @"http://localhost:8080/api/v1/moderators/%@/polls/%@"
 
 // Vote
-#define URLCastVotePUT @"http://localhost:8080/api/v1/polls/%@?choice=%d"
+#define URLCastVotePUT @"/api/v1/polls/%@?choice=%d"
 
 #define URL
 

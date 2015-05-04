@@ -63,11 +63,6 @@ NSDictionary *json;
             arrVotePollList = [[NSArray alloc] initWithArray:[json valueForKey:@"pollName"]];
             arrVotePolls = (NSArray*)json;
             [tableViewPollsToVoteList reloadData];
-            //            for(int i=0;i<[jsonData count]; i++)
-            //            {
-            //                [arrPolls addObject:jsonData];
-            //            }
-            
             
             success = 1;
             NSLog(@"Success: %ld",(long)success);
@@ -151,25 +146,19 @@ NSDictionary *json;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [self performSegueWithIdentifier:@"viewVotingSegue" sender:self];
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"cellSelectionSegue"])
+    if ([[segue identifier] isEqualToString:@"viewVotingSegue"])
     {
-        //        CarDetailViewController *detailViewController =
-        [segue destinationViewController];
-        
-        //        NSIndexPath *myIndexPath = [self.tableView
-        //                                    indexPathForSelectedRow];
-        
-        //        long row = [myIndexPath row];
-        
-        //        detailViewController.carDetailModel = @[_carMakes[row],
-        //                                                _carModels[row], _carImages[row]];
+        NSIndexPath *myIndexPath = [self.tableViewPollsToVoteList
+                                    indexPathForSelectedRow];
+        long index = [myIndexPath row];
+        [Singleton getInstance].selectedPollDetails = [arrVotePolls objectAtIndex:index];
     }
+
 }
 
-//-(void) tableView
 @end

@@ -157,31 +157,11 @@ NSDictionary *jsonData;
 {
     if ([[segue identifier] isEqualToString:@"viewPollDetailsSegue"])
     {
-//        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
-//        ViewPollDetailsVC *objPoll = [segue destinationViewController];
-        
         NSIndexPath *myIndexPath = [self.tableViewPollList
                                     indexPathForSelectedRow];
-        
         long index = [myIndexPath row];
-        
         [Singleton getInstance].selectedPollDetails = [arrPolls objectAtIndex:index];
-//        ViewPollDetailsVC *objPoll = [[ViewPollDetailsVC alloc] init];
-//        objPoll.lblName.text = [[arrPolls objectAtIndex:index] valueForKey:@"pollName"];
-//        objPoll.lblCategory.text = [[arrPolls objectAtIndex:index] valueForKey:@"pollCategory"];
-//        objPoll.lblQuestion.text = [[arrPolls objectAtIndex:index] valueForKey:@"question"];
-//        objPoll.lblStartDate.text = [[arrPolls objectAtIndex:index] valueForKey:@"started_at"];
-//        objPoll.lblExpiryData.text = [[arrPolls objectAtIndex:index] valueForKey:@"expired_at"];
-//        objPoll.lblChoice1 = [[arrPolls objectAtIndex:index] valueForKey:@"choice"];
-//        objPoll.lblChoice2 = [[arrPolls objectAtIndex:index] valueForKey:@""];
-//        objPoll.lblChoice3 = [[arrPolls objectAtIndex:index] valueForKey:@""];
-//        objPoll.lblChoice4 = [[arrPolls objectAtIndex:index] valueForKey:@""];
-        
-        
-//        detailViewController.carDetailModel = @[_carMakes[row],
-//                                                _carModels[row], _carImages[row]];
     }
 }
 
-//-(void) tableView
 @end

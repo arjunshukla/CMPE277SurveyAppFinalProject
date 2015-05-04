@@ -8,15 +8,20 @@
 
 #import "ChartingVC.h"
 #import <ShinobiCharts/ShinobiCharts.h>
-
+#import "Singleton.h"
 @interface ChartingVC ()<SChartDatasource>
 
 @end
 
 @implementation ChartingVC
-NSDictionary* result[2];
+NSDictionary* result[1];
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Latest Result";
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
 //    self.view.backgroundColor = [UIColor whiteColor];
 //    CGFloat margin = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 10.0 : 50.0;
     ShinobiChart *chart = [[ShinobiChart alloc] initWithFrame:CGRectMake(5, 70, 365, 544)];
@@ -31,7 +36,7 @@ NSDictionary* result[2];
     chart.xAxis = xAxis;
     
     SChartAxis *yAxis = [SChartNumberAxis new];
-    yAxis.title = @"Sales (1000s)";
+    yAxis.title = @"No. of Votes";
     yAxis.rangePaddingHigh = @1.0;
     chart.yAxis = yAxis;
     
@@ -44,29 +49,32 @@ NSDictionary* result[2];
     chart.datasource = self;
     [self.view addSubview:chart];
     
-    result[0] = @{@"Broccoli" : @5.65, @"Carrots" : @12.6, @"Mushrooms" : @8.4};
-    result[1] = @{@"Broccoli" : @4.35, @"Carrots" : @13.2, @"Mushrooms" : @4.6, @"Okra" : @0.6};
+    
+    
+    result[0] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:0] : [[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:0],
+                  [[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:1] : [[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:1],@"-":@0,@"-":@0};
+//    result[1] = @{@"Broccoli" : @4.35, @"Carrots" : @13.2, @"Mushrooms" : @4.6, @"Okra" : @0.6};
 }
 
 
 #pragma mark - SCChartDataSource Methods
 -(NSInteger) numberOfSeriesInSChart:(ShinobiChart *)chart
 {
-    return 2;
+    return 1;
 }
 
 #pragma mark - data
 -(SChartSeries *)sChart:(ShinobiChart *)chart seriesAtIndex:(NSInteger)index
 {
-    SChartColumnSeries *lineSeries = [SChartColumnSeries new];
+    SChartColumnSeries *barSeries = [SChartColumnSeries new];
     
     if (index == 0) {
-        lineSeries.title = @"Ideal Velocity";
+        barSeries.title = @"Ideal Velocity";
     } else {
-        lineSeries.title = @"Actual Velocity";
+        barSeries.title = @"Actual Velocity";
     }
     //    lineSeries.style.showFill = true;
-    return lineSeries;
+    return barSeries;
 }
 
 - (NSInteger)sChart:(ShinobiChart *)chart numberOfDataPointsForSeriesAtIndex:(NSInteger)seriesIndex

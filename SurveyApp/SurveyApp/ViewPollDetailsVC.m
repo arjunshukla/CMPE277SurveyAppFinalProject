@@ -22,7 +22,17 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    NSDictionary* pollDetails= [Singleton getInstance].selectedPollDetails;
+    [self setPollDetails:[Singleton getInstance].selectedPollDetails];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)setPollDetails:(NSDictionary*)pollDetails
+{
+//    NSDictionary* pollDetails= [Singleton getInstance].selectedPollDetails;
     
     lblName.text = [pollDetails valueForKey:@"pollName"];
     lblCategory.text = [pollDetails valueForKey:@"pollCategory"];
@@ -93,16 +103,6 @@
     }
     
     self.navigationItem.title = @"Poll Details";
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)setPollDetails:(NSDictionary*)pollData
-{
     
 }
 
