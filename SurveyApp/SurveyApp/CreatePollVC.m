@@ -59,7 +59,7 @@ BOOL isStartDate = false;
         }
         else
         {
-            NSArray *tmpArr = [[NSArray alloc]initWithObjects:txtFirstOption.text, txtSecondOption.text, nil];
+            NSArray *tmpArr = [[NSArray alloc]initWithObjects:txtFirstOption.text, txtSecondOption.text,txtThirdOption.text,txtFourthOption.text, nil];
             
             NSString *urlString = [NSString stringWithFormat:[URLIP stringByAppendingString:URLCreatePollPOST],[Singleton getInstance].moderatorId];
             

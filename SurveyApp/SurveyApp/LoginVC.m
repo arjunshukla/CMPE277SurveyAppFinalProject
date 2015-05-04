@@ -71,15 +71,22 @@
                         if(success == 1)
                         {
                             NSLog(@"Login SUCCESS");
-                        } else {
+                        } else
+                        {
                             
                             NSString *error_msg = (NSString *) jsonData[@"error_message"];
                             [self alertStatus:error_msg :@"Sign in Failed!" :0];
                         }
-                    } else {
-                        [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
+                    }
+                    else
+                    {
+                        [self alertStatus:@"Login Failed" :@"User Does not exist!\nPlease signup" :0];
                     }
                 }
+                    else
+                    {
+                        [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
+                    }
             }
         }
         @catch (NSException * e) {
@@ -91,17 +98,19 @@
             [self performSegueWithIdentifier:@"LoginSuccess" sender:self];
         }
     }
-    else
+    else // for signup
     {
         NSInteger success = 0;
         BOOL isValidUser = false;
         @try
         {
-            if([[self.txtEmail text] isEqualToString:@""] || [[self.txtPassword text] isEqualToString:@""] )
+            if([txtName.text isEqualToString:@""] || [txtEmail.text isEqualToString:@""] || [txtPassword.text isEqualToString:@""] || [txtRePassword.text isEqualToString:@""])
             {
                 
-                [self alertStatus:@"Please enter Name, Email and Password" :@"Sign in Failed!" :0];
+                [self alertStatus:@"Please enter Name, Email and Password" :@"Incomplete Details" :0];
             }
+            else if([txtPassword.text isEqualToString:txtRePassword.text])
+                [self alertStatus:@"" :@"Passwords don't Match" :0];
             else
             {
                 NSURL *url=[NSURL URLWithString:[URLIP stringByAppendingString:URLCreateModeratorPOST]];
@@ -141,14 +150,21 @@
                         if(success == 1)
                         {
                             NSLog(@"Login SUCCESS");
-                        } else {
-                            
+                        }
+                        else
+                        {
                             NSString *error_msg = (NSString *) jsonData[@"error_message"];
                             [self alertStatus:error_msg :@"Sign in Failed!" :0];
                         }
-                    } else {
+                    }
+                    else
+                    {
                         [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
                     }
+                }
+                else if([response statusCode] == 409)
+                {
+                    [self alertStatus:@"Please login." :@"User already exists!" :0];
                 }
             }
         }

@@ -21,6 +21,7 @@
 
 // Polls
 #define URLCreatePollPOST @"/api/v1/moderators/%@/polls"
+#define URLViewAllPollsGET @"/api/v1/polls"
 
 #define URLGetPollWithoutResultGET @"http://localhost:8080/api/v1/polls/%@"
 #define URLGetPollForModeratorIdWithResultGET @"http://localhost:8080/api/v1/moderators/%@/polls/%@"

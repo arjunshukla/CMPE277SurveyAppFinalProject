@@ -1,26 +1,28 @@
 //
-//  SecondViewController.m
+//  VoteVC.m
 //  SurveyApp
 //
-//  Created by Arjun Shukla on 4/28/15.
+//  Created by Arjun Shukla on 5/3/15.
 //  Copyright (c) 2015 CMPE277. All rights reserved.
 //
 
-#import "ViewPollVC.h"
+#import "VoteVC.h"
 #import "URLs.h"
-#include "Singleton.h"
-#import "ViewPollDetailsVC.h"
-@interface ViewPollVC ()
+#import "Singleton.h"
+
+@interface VoteVC ()
 
 @end
 
-@implementation ViewPollVC
-NSArray* arrPollList, *arrPolls;
-NSDictionary *jsonData;
+@implementation VoteVC
+@synthesize tableViewPollsToVoteList;
+NSArray* arrVotePollList, *arrVotePolls;
+NSDictionary *json;
 
 
 -(void) viewDidLoad{
-    self.navigationItem.title = @"View Polls";
+    self.navigationItem.title = @"Vote";
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -29,7 +31,7 @@ NSDictionary *jsonData;
     BOOL isValidUser = false;
     @try
     {
-        NSString *urlString = [NSString stringWithFormat:[URLIP stringByAppendingString:URLGetAllPollsGET],[Singleton getInstance].moderatorId];
+        NSString *urlString = [NSString stringWithFormat:[URLIP stringByAppendingString:URLViewAllPollsGET],[Singleton getInstance].moderatorId];
         
         NSURL *url=[NSURL URLWithString:urlString];
         
@@ -51,38 +53,38 @@ NSDictionary *jsonData;
             NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
             NSLog(@"Response ==> %@", responseData);
             
-                
-                NSError *error = nil;
-                jsonData = [NSJSONSerialization
-                                          JSONObjectWithData:urlData
-                                          options:NSJSONReadingMutableContainers
-                                          error:&error];
             
-            arrPollList = [[NSArray alloc] initWithArray:[jsonData valueForKey:@"pollName"]];
-            arrPolls = (NSArray*)jsonData;
-            [self.tableViewPollList reloadData];
-//            for(int i=0;i<[jsonData count]; i++)
-//            {
-//                [arrPolls addObject:jsonData];
-//            }
+            NSError *error = nil;
+            json = [NSJSONSerialization
+                        JSONObjectWithData:urlData
+                        options:NSJSONReadingMutableContainers
+                        error:&error];
+            
+            arrVotePollList = [[NSArray alloc] initWithArray:[json valueForKey:@"pollName"]];
+            arrVotePolls = (NSArray*)json;
+            [tableViewPollsToVoteList reloadData];
+            //            for(int i=0;i<[jsonData count]; i++)
+            //            {
+            //                [arrPolls addObject:jsonData];
+            //            }
             
             
             success = 1;
-                NSLog(@"Success: %ld",(long)success);
-//            if([responseData isEqualToString:@"true"])
-//            {
-//                [Singleton getInstance].moderatorId = [jsonData valueForKey:@"moderatorID"];
-//                if(success == 1)
-//                {
-//                    NSLog(@"Login SUCCESS");
-//                } else {
-//                    
-//                    NSString *error_msg = (NSString *) jsonData[@"error_message"];
-//                    [self alertStatus:error_msg :@"Sign in Failed!" :0];
-//                }
-//            } else {
-//                [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
-//            }
+            NSLog(@"Success: %ld",(long)success);
+            //            if([responseData isEqualToString:@"true"])
+            //            {
+            //                [Singleton getInstance].moderatorId = [jsonData valueForKey:@"moderatorID"];
+            //                if(success == 1)
+            //                {
+            //                    NSLog(@"Login SUCCESS");
+            //                } else {
+            //
+            //                    NSString *error_msg = (NSString *) jsonData[@"error_message"];
+            //                    [self alertStatus:error_msg :@"Sign in Failed!" :0];
+            //                }
+            //            } else {
+            //                [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
+            //            }
         }
         
     }
@@ -123,7 +125,7 @@ NSDictionary *jsonData;
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [arrPollList count];
+    return [arrVotePollList count];
 }
 
 // Customize the appearance of table view cells.
@@ -137,9 +139,9 @@ NSDictionary *jsonData;
     
     // Set the data for this cell:
     
-    cell.textLabel.text = [arrPollList objectAtIndex:indexPath.row];
+    cell.textLabel.text = [arrVotePollList objectAtIndex:indexPath.row];
     cell.detailTextLabel.text = @"More text";
-//    cell.imageView.image = [UIImage imageNamed:@"flower.png"];
+    //    cell.imageView.image = [UIImage imageNamed:@"flower.png"];
     
     // set the accessory view:
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
@@ -149,37 +151,23 @@ NSDictionary *jsonData;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
-
+//    [self performSegueWithIdentifier:@"viewVotingSegue" sender:self];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"viewPollDetailsSegue"])
+    if ([[segue identifier] isEqualToString:@"cellSelectionSegue"])
     {
-//        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
-//        ViewPollDetailsVC *objPoll = [segue destinationViewController];
+        //        CarDetailViewController *detailViewController =
+        [segue destinationViewController];
         
-        NSIndexPath *myIndexPath = [self.tableViewPollList
-                                    indexPathForSelectedRow];
+        //        NSIndexPath *myIndexPath = [self.tableView
+        //                                    indexPathForSelectedRow];
         
-        long index = [myIndexPath row];
+        //        long row = [myIndexPath row];
         
-        [Singleton getInstance].selectedPollDetails = [arrPolls objectAtIndex:index];
-//        ViewPollDetailsVC *objPoll = [[ViewPollDetailsVC alloc] init];
-//        objPoll.lblName.text = [[arrPolls objectAtIndex:index] valueForKey:@"pollName"];
-//        objPoll.lblCategory.text = [[arrPolls objectAtIndex:index] valueForKey:@"pollCategory"];
-//        objPoll.lblQuestion.text = [[arrPolls objectAtIndex:index] valueForKey:@"question"];
-//        objPoll.lblStartDate.text = [[arrPolls objectAtIndex:index] valueForKey:@"started_at"];
-//        objPoll.lblExpiryData.text = [[arrPolls objectAtIndex:index] valueForKey:@"expired_at"];
-//        objPoll.lblChoice1 = [[arrPolls objectAtIndex:index] valueForKey:@"choice"];
-//        objPoll.lblChoice2 = [[arrPolls objectAtIndex:index] valueForKey:@""];
-//        objPoll.lblChoice3 = [[arrPolls objectAtIndex:index] valueForKey:@""];
-//        objPoll.lblChoice4 = [[arrPolls objectAtIndex:index] valueForKey:@""];
-        
-        
-//        detailViewController.carDetailModel = @[_carMakes[row],
-//                                                _carModels[row], _carImages[row]];
+        //        detailViewController.carDetailModel = @[_carMakes[row],
+        //                                                _carModels[row], _carImages[row]];
     }
 }
 

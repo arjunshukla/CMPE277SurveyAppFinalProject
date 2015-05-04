@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F23B68E71AF6B56200D99F96 /* VoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F23B68E61AF6B56200D99F96 /* VoteVC.m */; };
+		F23B68EB1AF6D1E000D99F96 /* ViewPollDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F23B68EA1AF6D1E000D99F96 /* ViewPollDetailsVC.m */; };
 		F25048921AF0A9510028DABA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F25048911AF0A9510028DABA /* main.m */; };
 		F25048951AF0A9510028DABA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F25048941AF0A9510028DABA /* AppDelegate.m */; };
 		F25048981AF0A9510028DABA /* CreatePollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F25048971AF0A9510028DABA /* CreatePollVC.m */; };
@@ -45,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F23B68E51AF6B56200D99F96 /* VoteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteVC.h; sourceTree = "<group>"; };
+		F23B68E61AF6B56200D99F96 /* VoteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteVC.m; sourceTree = "<group>"; };
+		F23B68E91AF6D1E000D99F96 /* ViewPollDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPollDetailsVC.h; sourceTree = "<group>"; };
+		F23B68EA1AF6D1E000D99F96 /* ViewPollDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPollDetailsVC.m; sourceTree = "<group>"; };
 		F250488C1AF0A9510028DABA /* SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F25048901AF0A9510028DABA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F25048911AF0A9510028DABA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -108,6 +114,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F23B68E41AF6B51600D99F96 /* Vote */ = {
+			isa = PBXGroup;
+			children = (
+				F23B68E51AF6B56200D99F96 /* VoteVC.h */,
+				F23B68E61AF6B56200D99F96 /* VoteVC.m */,
+			);
+			name = Vote;
+			sourceTree = "<group>";
+		};
+		F23B68E81AF6D19900D99F96 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				F25048931AF0A9510028DABA /* AppDelegate.h */,
+				F25048941AF0A9510028DABA /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
 		F25048831AF0A9510028DABA = {
 			isa = PBXGroup;
 			children = (
@@ -130,12 +154,12 @@
 		F250488E1AF0A9510028DABA /* SurveyApp */ = {
 			isa = PBXGroup;
 			children = (
+				F23B68E41AF6B51600D99F96 /* Vote */,
 				F27AAC891AF216C8001F7A0E /* Login */,
 				F27AAC821AF1D885001F7A0E /* JSONCategory */,
 				F27AAC6B1AF1B234001F7A0E /* images */,
 				F25048BB1AF0B4940028DABA /* Singleton */,
-				F25048931AF0A9510028DABA /* AppDelegate.h */,
-				F25048941AF0A9510028DABA /* AppDelegate.m */,
+				F23B68E81AF6D19900D99F96 /* AppDelegate */,
 				F27AAC811AF1D6DA001F7A0E /* Create Polls */,
 				F27AAC801AF1D6C7001F7A0E /* View Polls */,
 				F27AAC7F1AF1D6B9001F7A0E /* Charting */,
@@ -232,6 +256,8 @@
 			children = (
 				F25048991AF0A9510028DABA /* ViewPollVC.h */,
 				F250489A1AF0A9510028DABA /* ViewPollVC.m */,
+				F23B68E91AF6D1E000D99F96 /* ViewPollDetailsVC.h */,
+				F23B68EA1AF6D1E000D99F96 /* ViewPollDetailsVC.m */,
 			);
 			name = "View Polls";
 			sourceTree = "<group>";
@@ -373,10 +399,12 @@
 				F250489B1AF0A9510028DABA /* ViewPollVC.m in Sources */,
 				F25048951AF0A9510028DABA /* AppDelegate.m in Sources */,
 				F25048981AF0A9510028DABA /* CreatePollVC.m in Sources */,
+				F23B68E71AF6B56200D99F96 /* VoteVC.m in Sources */,
 				F27AAC851AF1D8C6001F7A0E /* NSDictionary+JSONDictionary.m in Sources */,
 				F25048921AF0A9510028DABA /* main.m in Sources */,
 				F27AAC7E1AF1D68C001F7A0E /* ChartingVC.m in Sources */,
 				F27AAC8C1AF216F6001F7A0E /* LoginVC.m in Sources */,
+				F23B68EB1AF6D1E000D99F96 /* ViewPollDetailsVC.m in Sources */,
 				F25048BA1AF0B48D0028DABA /* Singleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

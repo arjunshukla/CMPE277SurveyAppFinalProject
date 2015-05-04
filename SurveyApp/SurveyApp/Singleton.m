@@ -10,7 +10,7 @@
 
 static Singleton *singletonInstance = nil;
 @implementation Singleton
-@synthesize moderatorId,isLoggedIn,viewList;
+@synthesize moderatorId,isLoggedIn,selectedPollDetails;
 
 +(Singleton *)getInstance{
 

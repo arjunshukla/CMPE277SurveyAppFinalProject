@@ -11,6 +11,6 @@
 @interface Singleton : NSObject
 @property(nonatomic,strong) NSString *moderatorId;
 @property(nonatomic,assign) BOOL isLoggedIn;
-@property(nonatomic,strong) NSArray* viewList;
+@property(nonatomic,strong) NSDictionary* selectedPollDetails;
 +(Singleton *)getInstance;
 @end
