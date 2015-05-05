@@ -48,14 +48,12 @@ BOOL isStartDate = false;
 }
 
 - (IBAction)onCreateBtnTap:(id)sender {
-    NSInteger success = 0;
-    BOOL isValidUser = false;
     @try
     {
         if([txtPollName.text isEqualToString:@""] || [txtCategory.text isEqualToString:@""] || [txtQuestion.text isEqualToString:@""] || [txtStartDate.text isEqualToString:@""] || [txtExpiryDate.text isEqualToString:@""] || [txtFirstOption.text isEqualToString:@""] || [txtSecondOption.text isEqualToString:@""])
         {
             
-            [self alertStatus:@"Please enter Email and Password" :@"Sign in Failed!" :0];
+            [self alertStatus:@"Please enter all details" :@"Insufficient Data" :0];
         }
         else
         {
@@ -86,31 +84,22 @@ BOOL isStartDate = false;
             NSLog(@"Response code: %ld", (long)[response statusCode]);
             if ([response statusCode] >= 200 && [response statusCode] < 300)
             {
-                NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-                NSLog(@"Response ==> %@", responseData);
-                
-                isValidUser = true;
                 NSError *error = nil;
                 NSDictionary *jsonData = [NSJSONSerialization
                                           JSONObjectWithData:urlData
                                           options:NSJSONReadingMutableContainers
                                           error:&error];
-                success = 1;
-                NSLog(@"Success: %ld",(long)success);
                 
-                if([responseData isEqualToString:@"true"])
-                {
-                    if(success == 1)
-                    {
-                        NSLog(@"Login SUCCESS");
-                    } else {
-                        
-                        NSString *error_msg = (NSString *) jsonData[@"error_message"];
-                        [self alertStatus:error_msg :@"Sign in Failed!" :0];
-                    }
-                } else {
-                    [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
-                }
+                
+                [self alertStatus:[NSString stringWithFormat:@"Survey created with id: %@.",[jsonData valueForKey:@"id"]] :@"Survey Created" :0];
+                [self.view endEditing:YES];
+                pickerCategory.hidden=true;
+                pickerDate.hidden=true;
+                [self clearFields];
+            }
+            else
+            {
+                [self alertStatus:@"Please try again" :@"Error" :0];
             }
         }
     }
@@ -131,6 +120,19 @@ BOOL isStartDate = false;
     [alertView show];
 }
 
+
+-(void)clearFields
+{
+    txtPollName.text=@"";
+    txtCategory.text=@"";
+    txtQuestion.text=@"";
+    txtStartDate.text=@"";
+    txtExpiryDate.text=@"";
+    txtFirstOption.text=@"";
+    txtSecondOption.text=@"";
+    txtThirdOption.text=@"";
+    txtFourthOption.text=@"";
+}
 
 - (IBAction)onStartDateTap:(id)sender {
     isStartDate = true;
@@ -187,25 +189,12 @@ BOOL isStartDate = false;
 {
     if(textField == txtThirdOption || textField == txtFourthOption)
     {
-        
-//        [self.view setAlpha:0.5f];
-        
-        //fade in
         [UIView animateWithDuration:0.3f animations:^{
             self.view.center = CGPointMake(originalCenter.x, originalCenter.y - 200);
-//            [self.view setAlpha:1.0f];
-            
-        } completion:nil/*^(BOOL finished) {
-                         
-                         //fade out
-                         [UIView animateWithDuration:2.0f animations:^{
-                         
-                         [viewProjCategory setAlpha:0.0f];
-                         
-                         } completion:nil];
-                         
-                         }*/];
+        } completion:nil];
     }
+    pickerCategory.hidden=true;
+    pickerDate.hidden=true;
 }
 
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField
@@ -214,7 +203,6 @@ BOOL isStartDate = false;
         [textField resignFirstResponder];
         self.view.center = originalCenter;
     }];
-    
     return YES;
 }
 

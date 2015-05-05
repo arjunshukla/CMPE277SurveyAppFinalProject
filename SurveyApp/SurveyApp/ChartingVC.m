@@ -14,7 +14,7 @@
 @end
 
 @implementation ChartingVC
-NSDictionary* result[1];
+NSDictionary* result[4];
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Latest Result";
@@ -49,11 +49,10 @@ NSDictionary* result[1];
     chart.datasource = self;
     [self.view addSubview:chart];
     
-    
-    
-    result[0] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:0] : [[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:0],
-                  [[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:1] : [[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:1],@"-":@0,@"-":@0};
-//    result[1] = @{@"Broccoli" : @4.35, @"Carrots" : @13.2, @"Mushrooms" : @4.6, @"Okra" : @0.6};
+    result[0] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:0]:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:0]};
+    result[1] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:1]:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:1]};
+    result[2] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:2]:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:2]};
+    result[3] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:3]:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:3]};
 }
 
 

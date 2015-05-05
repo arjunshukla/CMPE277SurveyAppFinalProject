@@ -23,14 +23,13 @@
 - (IBAction)onLoginBtnTap:(id)sender {
     if(segmentOutlet.selectedSegmentIndex == 0) // for login
     {
-        NSInteger success = 0;
         BOOL isValidUser = false;
         @try
         {
             if([[self.txtEmail text] isEqualToString:@""] || [[self.txtPassword text] isEqualToString:@""] )
             {
                 
-                [self alertStatus:@"Please enter Email and Password" :@"Sign in Failed!" :0];
+                [self alertStatus:@"Please enter Email and Password" :@"Sign in Failed" :0];
             }
             else
             {
@@ -61,14 +60,11 @@
                                               JSONObjectWithData:urlData
                                               options:NSJSONReadingMutableContainers
                                               error:&error];
-                    if([[jsonData valueForKey:@"success"] isEqualToString:@"true"])
+                    if([[jsonData valueForKey:@"success"] isEqualToString:@"valid"])
                     {
                         isValidUser = true;
-                        success = 1;
-                        NSLog(@"Success: %ld",(long)success);
-                        
                         [Singleton getInstance].moderatorId = [[NSString alloc]initWithString:[jsonData valueForKey:@"moderatorID"]];
-                        if(success == 1)
+                        if(isValidUser)
                         {
                             NSLog(@"Login SUCCESS");
                         } else
@@ -78,14 +74,16 @@
                             [self alertStatus:error_msg :@"Sign in Failed!" :0];
                         }
                     }
-                    else
+                    else if([[jsonData valueForKey:@"success"] isEqualToString:@"invalid credentials"])
+                        [self alertStatus:@"Please enter correct email id and password":@"Invalid Credentials":0];
+                    else if([[jsonData valueForKey:@"success"] isEqualToString:@"invalid"])
                     {
                         [self alertStatus:@"Login Failed" :@"User Does not exist!\nPlease signup" :0];
                     }
                 }
                     else
                     {
-                        [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
+                        [self alertStatus:@"Please check your network connection" :@"Sign in Failed" :0];
                     }
             }
         }
@@ -109,7 +107,7 @@
                 
                 [self alertStatus:@"Please enter Name, Email and Password" :@"Incomplete Details" :0];
             }
-            else if([txtPassword.text isEqualToString:txtRePassword.text])
+            else if(![txtPassword.text isEqualToString:txtRePassword.text])
                 [self alertStatus:@"" :@"Passwords don't Match" :0];
             else
             {
@@ -158,14 +156,10 @@
                         }
                     }
                     else
-                    {
                         [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
-                    }
                 }
                 else if([response statusCode] == 409)
-                {
                     [self alertStatus:@"Please login." :@"User already exists!" :0];
-                }
             }
         }
         @catch (NSException * e) {

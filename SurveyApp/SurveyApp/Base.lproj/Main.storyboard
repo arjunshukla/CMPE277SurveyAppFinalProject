@@ -25,6 +25,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2S-ai-sRK">
+                                            <rect key="frame" x="156" y="464" width="62" height="30"/>
+                                            <color key="backgroundColor" red="0.12549019610000001" green="0.74901960779999999" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <state key="normal" title="Create">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onCreateBtnTap:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Yf4-KB-UZg"/>
+                                            </connections>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Poll Name :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUc-Tr-NQh">
                                             <rect key="frame" x="115" y="18" width="145" height="21"/>
                                             <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
@@ -42,7 +53,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g General Survey" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eb5-e8-w94">
+                                        <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E.g General Survey" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eb5-e8-w94">
                                             <rect key="frame" x="71" y="108" width="232" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -158,28 +169,17 @@
                                                 <action selector="onEndDateTap:" destination="9pv-A4-QxB" eventType="touchUpInside" id="9Qd-73-ppj"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2S-ai-sRK">
-                                            <rect key="frame" x="156" y="464" width="62" height="30"/>
-                                            <color key="backgroundColor" red="0.12549019610000001" green="0.74901960779999999" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <state key="normal" title="Create">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
+                                        <pickerView hidden="YES" alpha="0.69999999999999973" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BVW-Hj-6V1">
+                                            <rect key="frame" x="0.0" y="420" width="375" height="155"/>
                                             <connections>
-                                                <action selector="onCreateBtnTap:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Yf4-KB-UZg"/>
+                                                <outlet property="dataSource" destination="9pv-A4-QxB" id="Xbm-hL-2fG"/>
+                                                <outlet property="delegate" destination="9pv-A4-QxB" id="bND-Ho-hON"/>
                                             </connections>
-                                        </button>
+                                        </pickerView>
                                     </subviews>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <pickerView hidden="YES" alpha="0.69999999999999973" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BVW-Hj-6V1">
-                                <rect key="frame" x="0.0" y="463" width="375" height="155"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="Xbm-hL-2fG"/>
-                                    <outlet property="delegate" destination="9pv-A4-QxB" id="bND-Ho-hON"/>
-                                </connections>
-                            </pickerView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U10-SW-fTQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="barTintColor" red="0.13725490200000001" green="0.70588235290000001" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -953,6 +953,6 @@
         <image name="icon.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bgw-c2-5ND"/>
+        <segue reference="quh-zl-Oiv"/>
     </inferredMetricsTieBreakers>
 </document>
