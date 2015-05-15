@@ -178,7 +178,7 @@ NSDictionary *jsonData;
             [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
             //            [request setHTTPBody:postData];
             NSHTTPURLResponse *response = nil;
-            NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
             NSLog(@"Response code: %ld", (long)[response statusCode]);
             if ([response statusCode] >= 200 && [response statusCode] < 300)
             {                

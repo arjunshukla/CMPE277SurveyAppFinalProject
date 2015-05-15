@@ -140,7 +140,8 @@
                                                   JSONObjectWithData:urlData
                                                   options:NSJSONReadingMutableContainers
                                                   error:&error];
-                        [Singleton getInstance].moderatorId = [jsonData valueForKey:@"moderatorID"];
+                        [Singleton getInstance].moderatorId = [[NSString alloc]initWithString:[jsonData valueForKey:@"id"]];
+//                        [Singleton getInstance].moderatorId = [jsonData valueForKey:@"id"];
                         //                     success = [jsonData[@"success"] integerValue];
                         success = 1;
                         NSLog(@"Success: %ld",(long)success);

@@ -14,7 +14,7 @@
 @end
 
 @implementation ChartingVC
-NSDictionary* result[4];
+NSMutableDictionary* result;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Latest Result";
@@ -48,11 +48,16 @@ NSDictionary* result[4];
     yAxis.enableGestureZooming = true;
     chart.datasource = self;
     [self.view addSubview:chart];
-    
-    result[0] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:0]:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:0]};
-    result[1] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:1]:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:1]};
-    result[2] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:2]:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:2]};
-    result[3] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:3]:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:3]};
+    result = [[NSMutableDictionary alloc] init];
+    for (int i=0; i<[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] count]; i++) {
+        [result setValue:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:i] forKey:[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:i]];
+    }
+//    
+//    [result setValue:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:0] forKey:[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:0]];
+//    result[0] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:0]:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:0]};
+//    result[1] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:1]:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:1]};
+//    result[2] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:2]:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:2]};
+//    result[3] = @{[[[Singleton getInstance].selectedPollDetails valueForKey:@"choice"] objectAtIndex:3]:[[[Singleton getInstance].selectedPollDetails valueForKey:@"results"] objectAtIndex:3]};
 }
 
 
@@ -78,7 +83,7 @@ NSDictionary* result[4];
 
 - (NSInteger)sChart:(ShinobiChart *)chart numberOfDataPointsForSeriesAtIndex:(NSInteger)seriesIndex
 {
-    return 2;
+    return [result count];
 }
 
 //- (id<SChartData>)sChart:(ShinobiChart *)chart dataPointAtIndex:(NSInteger)dataIndex forSeriesAtIndex:(NSInteger)seriesIndex
@@ -89,9 +94,10 @@ NSDictionary* result[4];
 
 -(id<SChartData>)sChart:(ShinobiChart *)chart dataPointAtIndex:(NSInteger)dataIndex forSeriesAtIndex:(NSInteger)seriesIndex {
     SChartDataPoint *datapoint = [SChartDataPoint new];
-    NSString* key = result[seriesIndex].allKeys[dataIndex];
-    datapoint.xValue = key;
-    datapoint.yValue = result[seriesIndex][key];
+    
+    NSString* key = [[result allKeys] objectAtIndex:dataIndex];
+    datapoint.xValue = [[result allKeys] objectAtIndex:dataIndex];
+    datapoint.yValue = [result valueForKey:key];
     return datapoint;
 }
 
